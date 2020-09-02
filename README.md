@@ -1,4 +1,4 @@
-This is the web repo for the A Flock of Black Swan web project and GURPS campaign. While this will ideally be hosted on Amazon (along with the api repo), the repo(s) can be run locally for the sake of development. See the commands below for more detail. 
+This is the web repo for the **A Flock of Black Swan** web project and GURPS campaign. While this will ideally be hosted on Amazon (along with the api repo), the repo(s) can be run locally for the sake of development. See the commands below for more detail. 
 
 ## Trello Board 
 https://trello.com/b/2frifESm/black-swan-development-web
