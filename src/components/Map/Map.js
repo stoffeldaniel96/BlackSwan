@@ -12,6 +12,7 @@ import notableSpots from "../../constants/notableSpotsExample";
 import spot from "./spot.png";
 import car from "./Car.png";
 import building from "./Building.png"
+import PropTypes from "prop-types";
 //import axios from "axios";
 
 const defaultPointData = [
@@ -53,7 +54,7 @@ pointsInCal.features.forEach(x => {
 let features = notableSpots.features;
 const notableSpotList = {...notableSpots, features: [...features, ...pointsInCal.features]};
 
-function Map(props, ref) {
+function Map(props) {
     //const inputRef = useRef();
 
     //eslint-disable-next-line
@@ -211,5 +212,9 @@ function Map(props, ref) {
         <div ref={el => (mapContainer.current = el)} className="mapContainer" />
     );
 }
+
+Map.propTypes = {
+    updateParent: PropTypes.func.isRequired
+};
 
 export default Map

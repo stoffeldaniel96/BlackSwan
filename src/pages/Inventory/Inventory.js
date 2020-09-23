@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react';
 
-function Dash(props) {
+function Inventory(props) {
     const {selectTab} = props;
 
     const selectTheTab = () => {
-        selectTab("Dashboard");
+        selectTab("Inventory");
     }
 
     useEffect(selectTheTab, [selectTab]);
 
     return (
         <div>
-            Dashboard
+            Inventory
         </div>
     );
 }
 
-export default Dash
+export default Inventory

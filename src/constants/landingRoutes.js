@@ -2,7 +2,7 @@ import React from 'react';
 
 const Landing = React.lazy(() => import('../containers/Landing/Landing'));
 const Login = React.lazy(() => import('../pages/Login/Login.js'));
-const Dash = React.lazy(() => import('../pages/Dash/Dash.js'));
+const Home = React.lazy(()=> import('../containers/UserHome/HomeLayout'));
 
 const landingRoutes = [
     {
@@ -13,14 +13,14 @@ const landingRoutes = [
         component: Login
     },
     {
-        path: "/home/dash",
+        path: "/home",
         exact: false,
-        name: "Dash",
-        component: Dash
+        name: "Home",
+        component: Home
     },
     {
         path: "/",
-        exact: false,
+        exact: true,
         name: "Landing",
         protected: false,
         component: Landing

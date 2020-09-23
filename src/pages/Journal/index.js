@@ -1,19 +1,19 @@
 import React, {useEffect} from 'react';
 
-function Dash(props) {
+function Journal(props) {
     const {selectTab} = props;
 
     const selectTheTab = () => {
-        selectTab("Dashboard");
+        selectTab("Journal");
     }
 
     useEffect(selectTheTab, [selectTab]);
 
     return (
         <div>
-            Dashboard
+            Journal Page
         </div>
     );
 }
 
-export default Dash
+export default Journal
