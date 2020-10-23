@@ -24,13 +24,14 @@ const styles = (theme) => ({
 const HomeLayout = (props) => {
     const { classes } = props;
     const [selectedTab, setSelectedTab] = useState(null);
+    // eslint-disable-next-line no-unused-vars
     const [messages, setMessages] = useState([]);
 
     const selectTab = useCallback((tab) => {
         smoothScrollTop();
         document.title = `A Flock Of Black Swan - ${tab}`;
         setSelectedTab(tab);
-    }, [selectedTab])
+    }, []) //es-lint-disable-line react-hooks.exh
 
     return (
         <Fragment>

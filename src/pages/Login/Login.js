@@ -85,7 +85,7 @@ const Login = () => {
                         </p>
                     </div></div> :
                 <div>
-                    <p>{context.user.email}</p>
+                    <p>{context.user.display_name || context.user.email}</p>
                     <button onClick={signOut}>Sign Out</button>
                 </div>}
         </div> : null

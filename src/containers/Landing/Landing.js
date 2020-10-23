@@ -1,5 +1,7 @@
 import React, {memo, Fragment} from 'react';
+import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 
 const styles = (theme) => ({
     main: {
@@ -19,6 +21,9 @@ const Landing = (props) => {
     return (
         <Fragment>
             This is the landing Page!
+            <Link to={"/home/dash"}>
+                <Button>Push To Home</Button>
+            </Link>
         </Fragment>
     );
 };

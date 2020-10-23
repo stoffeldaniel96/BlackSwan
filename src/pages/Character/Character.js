@@ -1,14 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-function Character(props) {
-    const {selectTab} = props;
-
-    const selectTheTab = () => {
-        selectTab("Character");
-    }
-
-    useEffect(selectTheTab, [selectTab]);
-
+function Character() {
     return (
         <div> Character Page </div>
     );

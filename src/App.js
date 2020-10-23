@@ -13,7 +13,7 @@ import landingRoutes from "./constants/landingRoutes";
 const firebase = new Firebase();
 
 function App() {
-    const { initializing, user, loggedIn, updateUser } = useAuth(firebase);
+  const { initializing, user, loggedIn, updateUser } = useAuth(firebase);
   return (
         <authContext.Provider value={{user, initializing, firebase, loggedIn, updateUser}}>
             <BrowserRouter>

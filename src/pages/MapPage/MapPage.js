@@ -1,18 +1,11 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import Map from "../../components/Map/Map"
 
-function MapPage(props) {
-    const {selectTab} = props;
-
-    const selectTheTab = () => {
-        selectTab("Map");
-    }
+function MapPage() {
 
     const updateParent = (e) => {
         console.log(e);
     }
-
-    useEffect(selectTheTab, [selectTab]);
 
     return (
         <Map updateParent={updateParent}/>
