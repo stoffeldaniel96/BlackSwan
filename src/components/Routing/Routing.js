@@ -1,6 +1,6 @@
-import React, { memo } from "react";
+import React, { memo, Fragment, Suspense, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Switch, Redirect } from "react-router-dom";
+import { Switch, Redirect, useHistory } from "react-router-dom";
 import { withStyles } from "@material-ui/core";
 import PropsRoute from "../PropsRoute/PropsRoute";
 
@@ -40,24 +40,35 @@ const styles = (theme) => ({
 });
 
 function Routing(props) {
+    const history = useHistory();
     const {
         classes,
         selectTab,
         routes
     } = props;
+
+    useEffect(() => {
+        const index = routes.findIndex(route => route.path === history.location.pathname)
+        if (index >= 0) {
+            selectTab(routes[index].name)
+        }
+    },[history.location]) //eslint-disable-line react-hooks/exhaustive-deps
+
     return (
         <div className={classes.wrapper}>
-            <Switch>
-                {routes.map(route => (
-                    <PropsRoute
-                        key={route.name}
-                        path={route.path}
-                        component={route.component}
-                        selectTab={(tab)=> selectTab(tab)}
-                    />
-                ))}
-                <Redirect to="/home/dash"/>
-            </Switch>
+            <Suspense fallback={<Fragment/>}>
+                <Switch>
+                    {routes.map(route => (
+                        <PropsRoute
+                            key={route.name}
+                            path={route.path}
+                            component={route.component}
+                            selectTab={(tab)=> selectTab(tab)}
+                        />
+                    ))}
+                    <Redirect to="/home/dash"/>
+                </Switch>
+            </Suspense>
         </div>
     );
 }

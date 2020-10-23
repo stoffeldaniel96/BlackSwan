@@ -20,12 +20,6 @@ import {
     isWidthUp,
     withWidth,
 } from "@material-ui/core";
-import DashboardIcon from "@material-ui/icons/Dashboard";
-import PersonIcon from '@material-ui/icons/Person';
-import StorageIcon from '@material-ui/icons/Storage';
-import MapIcon from '@material-ui/icons/Map';
-import MenuBookIcon from '@material-ui/icons/MenuBook';
-import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 import MenuIcon from "@material-ui/icons/Menu";
 import SupervisorAccountIcon from "@material-ui/icons/SupervisorAccount";
 import MessagePopperButton from "./MessagePopperButton";
@@ -196,7 +190,7 @@ function NavBar(props) {
                             className={classNames(classes.iconListItem, classes.smBordered)}
                         >
                             <Avatar
-                                alt="profile picture"
+                                alt=""
                                 src={`${process.env.PUBLIC_URL}/images/logged_in/profilePicture.jpg`}
                                 className={classNames(classes.accountAvatar)}
                             />
@@ -204,7 +198,7 @@ function NavBar(props) {
                                 <ListItemText
                                     className={classes.username}
                                     primary={
-                                        <Typography color="textPrimary">{user ? user.email : "Username"}</Typography>
+                                        <Typography color="textPrimary">{user ? user.display_name || user.email : ""}</Typography>
                                     }
                                 />
                             )}

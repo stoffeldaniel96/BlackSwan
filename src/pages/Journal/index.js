@@ -1,13 +1,6 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 
-function Journal(props) {
-    const {selectTab} = props;
-
-    const selectTheTab = () => {
-        selectTab("Journal");
-    }
-
-    useEffect(selectTheTab, [selectTab]);
+function Journal() {
 
     return (
         <div>
