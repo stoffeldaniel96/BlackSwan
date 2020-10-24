@@ -2,7 +2,7 @@ import React from 'react';
 
 export const useAuth = (firebase) => {
     const [userState, setUserState] = React.useState(() => {
-        const user = firebase.auth.currentUser;
+        let user = JSON.parse(localStorage.getItem("blackswan_user")) || firebase.auth.currentUser;
         return {
             initializing: !user,
             user,
@@ -11,7 +11,13 @@ export const useAuth = (firebase) => {
     });
 
     function onChange({user}) {
+        localStorage.setItem("blackswan_user", JSON.stringify(user))
         setUserState({ initializing: false, user, loggedIn: user !== null && user !== {} });
+    }
+
+    async function getToken(force = false) {
+        const curUser = await firebase.auth.currentUser;
+        return await curUser.getIdToken(force);
     }
 
     function updateUser(newUserState) {
@@ -27,5 +33,5 @@ export const useAuth = (firebase) => {
         return () => unsubscribe()
     }, [firebase]);
 
-    return {...userState, updateUser}
+    return {...userState, updateUser, getToken}
 };
